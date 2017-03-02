@@ -14,7 +14,7 @@ echo "Base: $BASE_COMMIT, Remote: $REMOTE_REPO"
 echo "Find the remote/$REMOTE_REPO branches already merged into $BASE_COMMIT."
 
 # Get the list of merged remotes branches
-MERGED_LIST=`git branch --remotes --merged $BASE_COMMIT | grep $REMOTE_REPO | cut -c $(expr 4 + ${#REMOTE_REPO})- | grep "^\(feature\|fix\)"`
+MERGED_LIST=`git branch --remotes --merged $BASE_COMMIT | grep $REMOTE_REPO | cut -c $(expr 4 + ${#REMOTE_REPO})- | grep "^\(feature\|fix\|release\)"`
 
 echo "#########################################"
 echo "${MERGED_LIST}"  | awk -v REMOTE_REPO="$REMOTE_REPO" '{print REMOTE_REPO"/"$1}'
